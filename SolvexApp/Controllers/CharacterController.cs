@@ -39,7 +39,7 @@ namespace SolvexApp.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Character>> AddCharacter(CreateCharacterDto characterDto)
+        public async Task<ActionResult<Character>> AddCharacter(CreateCharacterRequest characterDto)
         {
             var character = new Character
             {
@@ -55,7 +55,7 @@ namespace SolvexApp.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Character>> UpdateCharacter(int id, UpdateCharacterDto characterDto)
+        public async Task<ActionResult<Character>> UpdateCharacter(int id, UpdateCharacterRequest characterDto)
         {
             var dbCharacter = await _context.Characters.FindAsync(id);
             if (dbCharacter == null)
